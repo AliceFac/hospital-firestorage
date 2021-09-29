@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{titulo}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label stacked>Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="medico.nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Crm</ion-label>
+      <ion-input type="text" [(ngModel)]="medico.crm"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Telefone</ion-label>
+      <ion-input type="number" [(ngModel)]="medico.telefone"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Especialidades</ion-label>
+      <ion-input type="array" [(ngModel)]="medico.especialidades"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Status</ion-label>
+      <ion-input type="boolean" [(ngModel)]="medico.status"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button block (click)="salvar()">Salvar</button>
+
+  <button ion-button block color="danger" (click)="excluir()" *ngIf="medicoID !== undefined">Excluir</button>
+
+</ion-content>

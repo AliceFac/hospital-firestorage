@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Enderecos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+  <ion-list>
+    <ion-item *ngFor="let item of enderecos">
+      <h2>{{item.localidade}}</h2>
+      <p>{{item.cep}}</p>
+    </ion-item>  
+  </ion-list>
+
+</ion-content>

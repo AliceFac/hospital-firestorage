@@ -1,0 +1,38 @@
+
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{titulo}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label stacked>Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="clinica.nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Endereço</ion-label>
+      <ion-input type="text" [(ngModel)]="clinica.endereco"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Cidade</ion-label>
+      <ion-input type="text" [(ngModel)]="clinica.cidade"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>UF</ion-label>
+      <ion-input type="text" [(ngModel)]="clinica.uf"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button block (click)="salvar()">Salvar</button>
+
+  <button ion-button block color="danger" (click)="excluir()" *ngIf="clinicaID !== undefined">Excluir</button>
+
+</ion-content>
