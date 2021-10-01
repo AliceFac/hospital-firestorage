@@ -23,4 +23,8 @@ export class ListEnderecoPage {
       })
   }
 
+  addItem() {
+    this.navCtrl.push('EnderecoFormPage');
+  }
+
 }

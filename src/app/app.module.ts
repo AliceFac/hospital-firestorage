@@ -11,6 +11,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { CepProvider } from '../providers/cep/cep';
 import { HttpClientModule } from '@angular/common/http';
 
+import { AngularFireStorageModule } from "angularfire2/storage";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database";
@@ -20,6 +21,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { PacienteProvider } from '../providers/paciente/paciente';
 import { MedicoProvider } from '../providers/medico/medico';
 import { ClinicaProvider } from '../providers/clinica/clinica';
+import { FirebaseStorageProvider } from '../providers/firebase-storage/firebase-storage';
 
 
 const firebaseConfig = {
@@ -49,7 +51,7 @@ const firebaseConfig = {
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
-
+    AngularFireStorageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -65,7 +67,8 @@ const firebaseConfig = {
     UserProvider,
     PacienteProvider,
     MedicoProvider,
-    ClinicaProvider
+    ClinicaProvider,
+    FirebaseStorageProvider
   ]
 })
 export class AppModule {}

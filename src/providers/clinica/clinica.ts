@@ -14,7 +14,7 @@ export class ClinicaProvider {
     ) {
   }
 
-  listar() { // realtime_db
+  listar() {
     return this.afd.list(this.ENTIDADE)
       .snapshotChanges()
       .map(item => item.map(changes => ({key: changes.payload.key, value: changes.payload.val() })));

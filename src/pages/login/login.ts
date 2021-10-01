@@ -38,7 +38,7 @@ export class LoginPage {
         loader.dismiss();
         console.log('user', user);
 
-        this.storage.set('usuario', user.uid)
+        this.userProvider.salvarLocal(user.uid)
           .then(_data => {
             this.navCtrl.setRoot(HomePage);
           });
@@ -55,7 +55,7 @@ export class LoginPage {
   }
 
   esqueciSenha() {
-    this.navCtrl.push('RecSenhaPage');
+    this.navCtrl.push('RecuperarSenhaPage');
   }
 
   showAlertErro() {

@@ -30,6 +30,10 @@ export class MyApp {
       { title: 'Pacientes', component: 'PacientesListPage' },
       { title: 'Clínicas', component: 'ClinicasListPage' },
       { title: 'Médicos', component: 'MedicosListPage' },
+      { title: 'Configurações', component: 'ConfiguracoesPage' },
+      { title: 'Usuários', component: 'ListPage' },
+      { title: 'Endereços', component: 'ListEnderecoPage' },
+      { title: 'Sobre', component: 'SobrePage' },
     ];
 
   }

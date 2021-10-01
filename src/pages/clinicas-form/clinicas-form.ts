@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { AlertController, IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { Clinica } from '../../models/clinica';
+import { PacienteProvider } from '../../providers/paciente/paciente';
 import { ClinicaProvider } from '../../providers/clinica/clinica';
 
 @IonicPage()
 @Component({
-  selector: 'page-clinicas-form',
+  selector: 'clinicas-form',
   templateUrl: 'clinicas-form.html',
 })
 export class ClinicasFormPage {
@@ -15,10 +16,13 @@ export class ClinicasFormPage {
   clinicaID = undefined;
   clinica = new Clinica();
 
+  clinicas = [];
+
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
-    public clinicaProvider: ClinicaProvider
+    public clinicaProvider: ClinicaProvider,
+    public pacienteProvider: PacienteProvider,
     ) {
 
       const clinicaID = this.navParams.get('itemID');
@@ -39,6 +43,12 @@ export class ClinicasFormPage {
 
         this.titulo = 'Inserir';
       }
+
+
+      this.pacienteProvider.listarFS().subscribe(_data => {
+        console.log(_data);
+        this.clinicas = _data;
+      })
   }
 
   ionViewDidLoad() {
@@ -47,6 +57,9 @@ export class ClinicasFormPage {
 
   salvar() {
     console.log(this.clinica);
+
+    this.clinica.lat = parseFloat(this.clinica.lat + '');
+    this.clinica.lng = parseFloat(this.clinica.lng + '');
 
     if(this.clinicaID) { 
 
@@ -67,7 +80,7 @@ export class ClinicasFormPage {
 
     const confirm = this.alertCtrl.create({
       title: 'Excluir?',
-      message: 'Tem certeza que deseja excluir este item?',
+      message: 'Tem certeza que deseja excluir esta clinica?',
       buttons: [
         {
           text: 'Não',
@@ -81,6 +94,7 @@ export class ClinicasFormPage {
             
             this.clinicaProvider.removerFS(this.clinicaID)
               .then(_ => {
+                this.presentToast('clinica removida com sucesso!');
                 this.navCtrl.pop()
               })
               .catch(error => {
