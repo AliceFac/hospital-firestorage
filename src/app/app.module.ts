@@ -22,6 +22,7 @@ import { PacienteProvider } from '../providers/paciente/paciente';
 import { MedicoProvider } from '../providers/medico/medico';
 import { ClinicaProvider } from '../providers/clinica/clinica';
 import { FirebaseStorageProvider } from '../providers/firebase-storage/firebase-storage';
+import { ExportProvider } from '../providers/export/export';
 
 
 const firebaseConfig = {
@@ -68,7 +69,8 @@ const firebaseConfig = {
     PacienteProvider,
     MedicoProvider,
     ClinicaProvider,
-    FirebaseStorageProvider
+    FirebaseStorageProvider,
+    ExportProvider
   ]
 })
 export class AppModule {}

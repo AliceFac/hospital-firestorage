@@ -1,31 +1,43 @@
 
 <ion-header>
-  <ion-navbar>
-    <ion-title>login</ion-title>
+  <ion-navbar transparent>
+    <ion-title></ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-list>
+<ion-content padding class="content">
 
-    <ion-item>
-      <ion-label stacked>Email</ion-label>
-      <ion-input type="text" [(ngModel)]="email"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label stacked>Senha</ion-label>
-      <ion-input type="password" [(ngModel)]="senha"></ion-input>
-    </ion-item>
+  <ion-grid class="grid-logo">
+    <ion-row align-items-center justify-content-center>
+      <ion-col col-12 align-self-center>
+        <img src="../../assets/imgs/icon.png" />        
+      </ion-col>
+      <ion-col class="main-title" col-12 align-self-center>Clínicas App</ion-col>
+    </ion-row>
+  </ion-grid>
 
-    <button ion-button block (click)="entrar()">Entrar</button>
-  
+  <ion-grid class="grid-list">
+    <ion-row align-items-center justify-content-center>
+      <ion-col align-self-center col-12 col-lg-4 col-xl-4>
+        <ion-list class="input-content">
 
-    <button ion-button block color="primary" outline (click)="cadastro()">Cadastro</button>
+          <ion-item class="margem-input-top">
+            <ion-input type="text" [(ngModel)]="email" placeholder="E-mail"></ion-input>
+          </ion-item>
+        
+          <ion-item class="margem-input-top">
+            <ion-input type="password" [(ngModel)]="senha" placeholder="Senha"></ion-input>
+          </ion-item>
 
-    <button ion-button block color="primary" outline (click)="esqueciSenha()">Esqueci a senha</button>
+          <button ion-button block (click)="entrar()" class="margem-btn-top btn">Entrar</button>
+        
+          <button ion-button block color="primary" clear style="text-transform: none; font-weight: 700;" (click)="esqueciSenha()">Esqueceu a senha?</button>
 
+          <button ion-button block color="primary" clear style="text-transform: none; font-weight: 700;" (click)="cadastro()">Não tem conta? Cadastre-se!</button>
 
-  </ion-list>
+        </ion-list>
+      </ion-col>
+     </ion-row>
+  </ion-grid>
 
 </ion-content>

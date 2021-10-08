@@ -1,3 +1,56 @@
 page-login {
 
+    .content{
+        background: url("../../assets/imgs/background.jpg") no-repeat center center/cover transparent;
+
+        .grid-logo {
+            ion-col {
+                text-align: center;
+            }
+    
+            img {
+                width: 110px;
+            }
+        }
+        
+        .main-title{
+            color: #008D7C;
+            font-size: 40px;
+            font-weight: 800;
+            text-shadow: -1px 1px 0 #FFE375,
+                          1px 1px 0 #FFE375,
+                         1px -1px 0 #FFE375,
+                        -1px -1px 0 #FFE375;
+        }
+    }
+
+    .input-content{
+        ion-item {
+            border-radius: 30px;
+            background-color: rgba(31, 30, 30, 0.3) !important;
+
+            ion-input {
+                color: white;
+            }
+
+            ::placeholder {
+                color: #ddd;
+            }
+        }
+
+    }
+
+    .margem-input-top {
+        margin-top: 20px;
+    }
+
+    .margem-btn-top {
+        margin-top: 30px;
+    }
+
+    .btn{
+        background-color: #008D7C;
+        border-radius: 15px;
+    }
+
 }

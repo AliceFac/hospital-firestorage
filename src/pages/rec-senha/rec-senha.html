@@ -1,20 +1,24 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar transparent>
     <ion-title>Recuperar senha</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-grid class="grid-list">
+    <ion-row align-items-center justify-content-center>
+      <ion-col align-self-center col-12 col-lg-4 col-xl-4>
 
-  <ion-list>
+        <ion-list class="input-content">
 
-    <ion-item>
-      <ion-label stacked>Email</ion-label>
-      <ion-input type="text" [(ngModel)]="email"></ion-input>
-    </ion-item>
+          <ion-item class="margem-input-top">
+            <ion-input type="text" [(ngModel)]="email" placeholder="E-mail"></ion-input>
+          </ion-item>
 
-    <button ion-button block (click)="recuperar()">Recuperar</button>
+          <button class="btn" ion-button block (click)="recuperar()">Recuperar</button>
 
-  </ion-list>
-
+        </ion-list>
+      </ion-col>
+    </ion-row>
+ </ion-grid>
 </ion-content>

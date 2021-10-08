@@ -55,7 +55,7 @@ export class LoginPage {
   }
 
   esqueciSenha() {
-    this.navCtrl.push('RecuperarSenhaPage');
+    this.navCtrl.push('RecSenhaPage');
   }
 
   showAlertErro() {

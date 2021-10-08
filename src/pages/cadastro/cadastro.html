@@ -1,30 +1,33 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar transparent>
     <ion-title>Cadastro</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-  <ion-list>
+  <ion-grid class="grid-list">
+    <ion-row align-items-center justify-content-center>
+      <ion-col align-self-center col-12 col-lg-4 col-xl-4>
 
-    <ion-item>
-      <ion-label stacked>Nome</ion-label>
-      <ion-input type="text" [(ngModel)]="nome"></ion-input>
-    </ion-item>
+        <ion-list class="input-content">
 
-    <ion-item>
-      <ion-label stacked>Email</ion-label>
-      <ion-input type="text" [(ngModel)]="email"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label stacked>Senha</ion-label>
-      <ion-input type="password" [(ngModel)]="senha"></ion-input>
-    </ion-item>
+          <ion-item class="margem-input-top">
+            <ion-input type="text" [(ngModel)]="nome" placeholder="Nome"></ion-input>
+          </ion-item>
 
-    <button ion-button block color="vinho" (click)="cadastrar()">Cadastrar</button>
-  
-  </ion-list>
+          <ion-item class="margem-input-top">
+            <ion-input type="text" [(ngModel)]="email" placeholder="E-mail"></ion-input>
+          </ion-item>
+        
+          <ion-item class="margem-input-top">
+            <ion-input type="password" [(ngModel)]="senha" placeholder="Senha"></ion-input>
+          </ion-item>
 
+          <button ion-button block color="vinho" class="btn" (click)="cadastrar()">Cadastrar</button>
+        
+        </ion-list>
+      </ion-col>
+    </ion-row>
+ </ion-grid>
 </ion-content>
