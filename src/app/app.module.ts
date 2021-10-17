@@ -23,6 +23,8 @@ import { MedicoProvider } from '../providers/medico/medico';
 import { ClinicaProvider } from '../providers/clinica/clinica';
 import { FirebaseStorageProvider } from '../providers/firebase-storage/firebase-storage';
 import { ExportProvider } from '../providers/export/export';
+import { Geolocation } from '@ionic-native/geolocation';
+import { Camera } from '@ionic-native/camera';
 
 
 const firebaseConfig = {
@@ -70,7 +72,9 @@ const firebaseConfig = {
     MedicoProvider,
     ClinicaProvider,
     FirebaseStorageProvider,
-    ExportProvider
+    ExportProvider,
+    Geolocation,
+    Camera
   ]
 })
 export class AppModule {}

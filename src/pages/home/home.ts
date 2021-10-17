@@ -4,6 +4,7 @@ import { CepProvider } from '../../providers/cep/cep';
 import { ClinicaProvider } from '../../providers/clinica/clinica';
 import { ExportProvider } from '../../providers/export/export';
 import { UserProvider } from '../../providers/user/user';
+import { Geolocation } from '@ionic-native/geolocation';
 
 
 declare var google: any;
@@ -18,12 +19,14 @@ export class HomePage {
   map; 
 
   clinicasArr = [];
+  makerMe: any;
 
   constructor(
       public navCtrl: NavController,
       public userProvider: UserProvider,
       public clinicaProvider: ClinicaProvider,
-      public exportProvider: ExportProvider
+      public exportProvider: ExportProvider,
+      private geolocation: Geolocation
     ) {
 
   }
@@ -51,8 +54,32 @@ export class HomePage {
         
         this.carregaDadosMapa(itemMarker);
       }
-    })
+    });
+
+    this.atualizarLocalizacao();
   }
+
+  atualizarLocalizacao() {
+    this.geolocation.getCurrentPosition().then((resp) => {
+
+
+      console.log('GPS**');
+      console.log('lat: ', resp.coords.latitude);
+      console.log('lng: ', resp.coords.longitude);
+
+      if(this.makerMe) {
+        this.makerMe.setMap(null); 
+        this.makerMe = undefined;
+      }
+
+      this.makerMe = this.addMarkerMe(resp.coords.latitude, resp.coords.longitude, 'me');
+      this.makerMe.setMap(this.map); 
+
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
+  }
+
 
   carregaDadosMapa(itemMarker) {
 
@@ -90,6 +117,15 @@ export class HomePage {
       title: nome,
       icon: new google.maps.MarkerImage(
         'https://mt.google.com/vt/icon?psize=16&font=fonts/Roboto-Regular.ttf&color=ff330000&name=icons/spotlight/spotlight-waypoint-b.png&ax=44&ay=48&scale=1&text=' + abrev
+      )
+    })
+  }
+  addMarkerMe(_lat, _lng, nome) {
+    return new google.maps.Marker({
+      position: {lat: _lat, lng: _lng},
+      title: nome,
+      icon: new google.maps.MarkerImage(
+        'assets/icon/location_icon.png'
       )
     })
   }
